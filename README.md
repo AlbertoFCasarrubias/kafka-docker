@@ -2,7 +2,7 @@
 
 This project contains a self-hosted Kafka deployment **aggressively optimized** for Render's free tier.
 
-⚠️ **Important**: This is for **testing only**. For production, use managed Kafka or upgrade to starter plan.
+⚠️ **Important**: This is for **testing only**.
 
 ## 🚀 Quick Deploy
 
