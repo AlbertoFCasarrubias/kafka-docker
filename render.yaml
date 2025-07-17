@@ -1,0 +1,6 @@
+services:
+  - type: private
+    name: kafka-server
+    env: docker
+    plan: free
+    autoDeploy: false
