@@ -1,6 +1,14 @@
 services:
   - type: private
-    name: kafka-server
+    name: zookeeper
     env: docker
     plan: free
     autoDeploy: false
+    dockerfilePath: zookeeper/Dockerfile
+
+  - type: private
+    name: kafka
+    env: docker
+    plan: free
+    autoDeploy: false
+    dockerfilePath: kafka/Dockerfile
