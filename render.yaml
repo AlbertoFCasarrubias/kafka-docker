@@ -4,7 +4,7 @@ services:
     name: kafka
     env: docker
     plan: free
-    dockerfilePath: Dockerfile.kafka
+    dockerfilePath: kafka/Dockerfile
     autoDeploy: false
     envVars:
       - key: KAFKA_CFG_NODE_ID
