@@ -48,6 +48,12 @@ This project contains a self-hosted Kafka deployment **aggressively optimized** 
 - **Try**: Lower `KAFKA_HEAP_OPTS` to `-Xmx150m -Xms75m`
 - **Alternative**: Use managed Kafka services
 
+### InvalidReceiveException Errors?
+
+- **Fixed**: Removed aggressive socket restrictions
+- **Reason**: KRaft controller needs large message support (~1.2GB)
+- **Solution**: Uses Kafka's default socket settings now
+
 ### Performance Issues
 
 - **Expected**: Free tier has CPU/memory limits

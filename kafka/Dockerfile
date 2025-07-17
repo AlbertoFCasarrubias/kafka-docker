@@ -26,13 +26,11 @@ ENV KAFKA_CFG_LOG_RETENTION_BYTES=104857600
 ENV KAFKA_CFG_NUM_PARTITIONS=1
 ENV KAFKA_CFG_DEFAULT_REPLICATION_FACTOR=1
 
-# Network settings - Fixed: Increased max request size to avoid InvalidReceiveException
+# Network settings - Removed socket restrictions for KRaft compatibility
 ENV KAFKA_CFG_LOG_FLUSH_INTERVAL_MESSAGES=1000
 ENV KAFKA_CFG_LOG_FLUSH_INTERVAL_MS=500
-ENV KAFKA_CFG_SOCKET_SEND_BUFFER_BYTES=32768
-ENV KAFKA_CFG_SOCKET_RECEIVE_BUFFER_BYTES=32768
-# Increased to 100MB (was 50MB) to fix "Invalid receive" errors
-ENV KAFKA_CFG_SOCKET_REQUEST_MAX_BYTES=104857600
+# Removed socket buffer restrictions that were causing controller issues
+# KRaft mode needs default (larger) socket settings for controller operations
 
 # Single-node optimizations
 ENV KAFKA_CFG_OFFSETS_TOPIC_REPLICATION_FACTOR=1
