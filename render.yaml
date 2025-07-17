@@ -1,6 +1,6 @@
 services:
   # Kafka Service (KRaft mode - no Zookeeper)
-  - type: private
+  - type: web
     name: kafka
     env: docker
     plan: free
