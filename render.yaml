@@ -3,12 +3,27 @@ services:
     name: zookeeper
     env: docker
     plan: free
-    autoDeploy: false
     dockerfilePath: zookeeper/Dockerfile
+    autoDeploy: false
 
   - type: web
     name: kafka
     env: docker
     plan: free
-    autoDeploy: false
     dockerfilePath: kafka/Dockerfile
+    autoDeploy: false
+    envVars:
+      - key: KAFKA_CFG_PROCESS_ROLES
+        value: broker
+      - key: KAFKA_CFG_NODE_ID
+        value: "1"
+      - key: KAFKA_CFG_CONTROLLER_QUORUM_VOTERS
+        value: "1@localhost:9093"
+      - key: KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP
+        value: PLAINTEXT:PLAINTEXT
+      - key: KAFKA_CFG_LISTENERS
+        value: PLAINTEXT://:9092
+      - key: KAFKA_CFG_ADVERTISED_LISTENERS
+        value: PLAINTEXT://localhost:9092
+      - key: ALLOW_PLAINTEXT_LISTENER
+        value: "yes"
