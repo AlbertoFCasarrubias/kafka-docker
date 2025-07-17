@@ -13,6 +13,8 @@ services:
     dockerfilePath: kafka/Dockerfile
     autoDeploy: false
     envVars:
+      - key: KAFKA_CFG_KRAFT_MODE
+        value: "false"
       - key: KAFKA_CFG_ZOOKEEPER_CONNECT
         value: zookeeper:2181
       - key: KAFKA_CFG_LISTENERS
